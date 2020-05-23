@@ -49,3 +49,23 @@ boxplot(resid,ylim=LIM)
 1-var(as.vector(resid)/var(as.vector(X)))
 var(as.vector(X_hat2))
 sum(s$d[1:new_k]^2)/crossprod(s$d,s$d)
+
+#exs
+s = svd(e)
+U <- s$u
+V <- s$v
+D <- diag(s$d)
+m = as.vector(rowMeans(e))
+cor(U[,1],m)
+
+y = e - rowMeans(e)
+z = s$d * t(s$v)
+dif1=sqrt(crossprod(e[,3]-e[,45]))
+dif2=sqrt(crossprod(z[,3]-z[,45]))
+abs(dif1-dif2)
+
+distances = sqrt(apply(e[,-3]-e[,3],2,crossprod))
+distances1 = sqrt(apply(z[1:2,-3]-z[1:2,3],2,crossprod))
+cor(distances,distances1,method="spearman")
+plot(distances,distances1)
+     
