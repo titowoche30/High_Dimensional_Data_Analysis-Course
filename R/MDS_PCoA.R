@@ -23,7 +23,7 @@ mypar(1,1)
 plot(t(PC),pch=21,bg=as.numeric(group),xlab="First dimension",ylab="Second dimension")
 legend("bottomright",levels(group),col=seq(along=levels(group)),pch=19,cex=.6)
   
-#By R Function
+  #By R Function
 dists <- dist(t(mat))
 mds <- cmdscale(dists,k=2)
 mypar2(1,1)
